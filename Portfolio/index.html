@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jeric Divinagracia · Senior QA Engineer</title>
+<meta name="description" content="Jeric Divinagracia, Senior QA Engineer with nearly 7 years of manual and automated testing across web and mobile.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF1F4; --surface:#FFFFFF; --ink:#1B2A3A; --muted:#55626F;
+  --line:#CBD3DB; --pass:#2F7D4F; --pass-soft:#DCEFE3; --amber:#B97A10;
+  --run-bg:#1B2A3A; --run-ink:#DCE4EC; --run-dim:#8B9AAA;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#141C25; --surface:#1C2733; --ink:#E6ECF2; --muted:#9AA8B6;
+    --line:#2E3B49; --pass:#5CC489; --pass-soft:#1E3A2B; --amber:#E0A640;
+    --run-bg:#0E151D; --run-ink:#DCE4EC; --run-dim:#7F8E9D;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pass);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+
+/* nav */
+header.top{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0}
+.mark{font:800 1.125rem/1 var(--display);text-decoration:none;letter-spacing:-.01em}
+nav ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;color:var(--muted);font-weight:500}
+nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:3.5rem;align-items:center;padding:3.5rem 0 5rem}
+.hero h1{font:800 clamp(2.75rem,6vw,4.5rem)/0.98 var(--display);letter-spacing:-.03em;margin:0 0 1.25rem}
+.hero .role{font:600 1.25rem/1.3 var(--display);color:var(--pass);margin:0 0 1.25rem}
+.hero p.lede{max-width:34rem;color:var(--muted);margin:0 0 2rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;padding:.8rem 1.4rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn.primary:hover{background:var(--pass);border-color:var(--pass)}
+.btn.ghost:hover{background:var(--surface)}
+
+.run{background:var(--run-bg);color:var(--run-ink);border-radius:14px;padding:1.4rem 1.5rem 1.6rem;font:400 .9rem/1.75 var(--mono);box-shadow:0 18px 40px -22px rgba(20,30,45,.55);overflow-x:auto}
+.run .cmd{color:var(--run-dim);margin-bottom:.75rem}
+.run .cmd b{color:var(--run-ink);font-weight:500}
+.run ol{list-style:none;margin:0;padding:0}
+.run li{display:flex;gap:.7rem;white-space:nowrap}
+.run .ok{color:#5CC489}
+.run .t{color:var(--run-dim);margin-left:auto;padding-left:1rem}
+.run .sum{margin-top:1rem;padding-top:.9rem;border-top:1px solid #2E3B49}
+.run .sum strong{color:#5CC489;font-weight:500}
+@media (prefers-reduced-motion:no-preference){
+  .run li,.run .sum{opacity:0;animation:pass .01s steps(1) forwards}
+  .run li:nth-child(1){animation-delay:.5s}
+  .run li:nth-child(2){animation-delay:.9s}
+  .run li:nth-child(3){animation-delay:1.3s}
+  .run li:nth-child(4){animation-delay:1.7s}
+  .run li:nth-child(5){animation-delay:2.1s}
+  .run li:nth-child(6){animation-delay:2.5s}
+  .run .sum{animation-delay:3.1s}
+}
+@keyframes pass{to{opacity:1}}
+
+/* sections */
+section{padding:4.5rem 0;border-top:1px solid var(--line)}
+section h2{font:800 clamp(1.9rem,3.5vw,2.5rem)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 .6rem}
+section .intro{color:var(--muted);max-width:40rem;margin:0 0 2.75rem}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1.4fr;gap:3rem}
+.about p{margin:0 0 1rem;max-width:38rem}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.75rem}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem}
+.fact b{display:block;font:700 1.5rem/1.1 var(--display);color:var(--pass)}
+.fact span{font-size:.92rem;color:var(--muted)}
+
+/* timeline */
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;left:7px;top:.5rem;bottom:.5rem;width:2px;background:var(--line)}
+.job{position:relative;padding:0 0 2.75rem 2.5rem}
+.job:last-child{padding-bottom:0}
+.job::before{content:"";position:absolute;left:0;top:.45rem;width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--pass)}
+.job.current::before{background:var(--pass)}
+.job-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.25rem 1rem;align-items:baseline}
+.job h3{font:700 1.3rem/1.25 var(--display);margin:0}
+.job .co{color:var(--pass);font-weight:600}
+.job time{color:var(--muted);font-size:.95rem;white-space:nowrap}
+.job ul{margin:.85rem 0 0;padding-left:1.1rem;max-width:46rem}
+.job li{margin:.3rem 0}
+details{margin-top:.6rem;max-width:46rem}
+summary{cursor:pointer;color:var(--pass);font-weight:600;padding:.2rem 0}
+details ul{margin-top:.4rem}
+
+/* skills */
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.skills h3{font:700 1.15rem/1.3 var(--display);margin:0 0 1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.55rem;list-style:none;margin:0;padding:0}
+.chips li{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.45rem .8rem;font-size:.95rem}
+.chips.tools li{background:var(--pass-soft);border-color:transparent;font-weight:500}
+
+/* education */
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.edu article{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.4rem 1.5rem}
+.edu h3{font:700 1.15rem/1.3 var(--display);margin:0 0 .3rem}
+.edu p{margin:0;color:var(--muted)}
+
+/* contact */
+.contact{text-align:left}
+.contact .big{font:800 clamp(1.6rem,4.5vw,3rem)/1.1 var(--display);letter-spacing:-.02em;text-decoration:none;border-bottom:4px solid var(--pass);word-break:break-all}
+.contact .big:hover{color:var(--pass)}
+.contact p.loc{color:var(--muted);margin-top:1.5rem}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+
+@media (max-width:860px){
+  .hero,.about,.skills,.edu{grid-template-columns:1fr}
+  .hero{padding-top:1.5rem;gap:2.5rem}
+  nav ul{gap:1rem}
+}
+@media (max-width:560px){
+  nav{display:none}
+  .facts{grid-template-columns:1fr}
+  .run{font-size:.8rem;padding:1.1rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#">Jeric Divinagracia</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>Jeric Divinagracia</h1>
+        <p class="role">Senior QA Engineer</p>
+        <p class="lede">I test web and mobile products, manually and with automation, so teams can release with confidence. Nearly 7 years in QA, plus a start as a full stack developer.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:jericdivinagracia@gmail.com">Email me</a>
+          <a class="btn ghost" href="#experience">See my experience</a>
+        </div>
+      </div>
+
+      <div class="run" role="img" aria-label="A test run showing all career checks passing: nearly 7 years of QA, web and mobile testing, automation with Cypress and Selenium, API testing with Postman, UAT coordination, and CI/CD integration.">
+        <div class="cmd">$ <b>npx cypress run --spec jeric.cy.js</b></div>
+        <ol>
+          <li><span class="ok">✓</span> has ~7 years of QA experience <span class="t">2019–now</span></li>
+          <li><span class="ok">✓</span> tests web and mobile platforms <span class="t">12ms</span></li>
+          <li><span class="ok">✓</span> automates with Cypress &amp; Selenium <span class="t">18ms</span></li>
+          <li><span class="ok">✓</span> validates APIs with Postman <span class="t">9ms</span></li>
+          <li><span class="ok">✓</span> coordinates UAT end to end <span class="t">14ms</span></li>
+          <li><span class="ok">✓</span> plugs tests into CI/CD <span class="t">11ms</span></li>
+        </ol>
+        <div class="sum"><strong>6 passing</strong>, 0 failing. Ready for release.</div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="about">
+        <div>
+          <h2>About</h2>
+        </div>
+        <div>
+          <p>I'm a detail-oriented QA engineer with nearly seven years of manual and automated testing across web and mobile, in both corporate and remote teams.</p>
+          <p>I build thorough test plans, push defects through to resolution, and work closely with developers and product teams to protect release quality. Six months as a junior full stack developer gave me a clear view of how code gets built, which makes me a better partner to the people writing it.</p>
+          <div class="facts">
+            <div class="fact"><b>~7 yrs</b><span>in quality assurance</span></div>
+            <div class="fact"><b>5</b><span>companies, corporate &amp; remote</span></div>
+            <div class="fact"><b>Web + mobile</b><span>manual and automated</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <p class="intro">From developer to automation engineer, most recent first.</p>
+      <ol class="timeline">
+        <li class="job current">
+          <div class="job-head">
+            <h3>Automation Engineer <span class="co">· N-pax Systems and Consulting, Inc.</span></h3>
+            <time>Aug 2025 – Present</time>
+          </div>
+          <ul>
+            <li>Design, build, and maintain automated test frameworks that widen coverage and speed up testing.</li>
+            <li>Integrate automated tests into CI/CD pipelines for continuous testing and faster releases.</li>
+            <li>Validate APIs with Postman, Swagger, and REST-based testing frameworks.</li>
+            <li>Give go/no-go release recommendations based on test results and risk assessment.</li>
+            <li>Mentor junior QA engineers, run peer reviews, and promote QA best practices.</li>
+          </ul>
+          <details>
+            <summary>Show more responsibilities</summary>
+            <ul>
+              <li>Develop test strategies, plans, cases, and scripts.</li>
+              <li>Run functional, integration, system, regression, and user acceptance testing.</li>
+              <li>Work with Product Owners, BAs, developers, and stakeholders to clarify requirements.</li>
+              <li>Log, prioritize, and track defects; lead root cause analysis with developers.</li>
+              <li>Review requirements and technical specs for testability.</li>
+              <li>Report quality metrics, progress, risks, and release readiness.</li>
+              <li>Support performance, load, and security testing.</li>
+              <li>Manage test environments, test data, and release validation.</li>
+              <li>Take part in sprint planning, stand-ups, reviews, and retrospectives.</li>
+            </ul>
+          </details>
+        </li>
+        <li class="job">
+          <div class="job-head">
+            <h3>QA Software Tester <span class="co">· iRely Ph</span></h3>
+            <time>May 2023 – Apr 2025</time>
+          </div>
+          <ul>
+            <li>Tested new features in depth before go-live to make sure they were robust and reliable.</li>
+            <li>Wrote and maintained test cases for new features and legacy operations.</li>
+            <li>Maintained and improved the team's automated testing system.</li>
+            <li>Tracked bug reports and quality metrics to support team productivity reviews.</li>
+            <li>Worked closely with the project manager, developers, and design team.</li>
+          </ul>
+        </li>
+        <li class="job">
+          <div class="job-head">
+            <h3>System Quality Assurance <span class="co">· Teligent System Inc.</span></h3>
+            <time>Jan 2022 – Apr 2023</time>
+          </div>
+          <ul>
+            <li>Coordinated UAT for user access and role management in Identity Access Management projects.</li>
+            <li>Led walkthroughs and knowledge transfer to the IAM BAU team for the move from UAT to production support.</li>
+            <li>Reported UAT status and completion to the IAM Head and presented issues to the project team.</li>
+            <li>Coached and mentored other UAT testers and helped escalate issues for quick resolution.</li>
+            <li>Built and ran automated tests for the project's major functions.</li>
+          </ul>
+        </li>
+        <li class="job">
+          <div class="job-head">
+            <h3>Manual Quality Assurance <span class="co">· Monarchsoft</span></h3>
+            <time>Dec 2019 – Dec 2021</time>
+          </div>
+          <ul>
+            <li>Ran functional, regression, sanity, and smoke testing.</li>
+            <li>Wrote test cases for new and existing features.</li>
+            <li>Created automated test scripts with Cypress for major functions.</li>
+            <li>Validated new features against product requirements before release.</li>
+          </ul>
+        </li>
+        <li class="job">
+          <div class="job-head">
+            <h3>Junior Web Developer <span class="co">· Portal Integrators</span></h3>
+            <time>Feb 2018 – Aug 2018</time>
+          </div>
+          <ul>
+            <li>Helped build a web application for an e-commerce client.</li>
+            <li>Joined client requirement discussions, code reviews, and UI/UX conversations.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="skills">
+      <h2>Skills &amp; tools</h2>
+      <p class="intro">The testing I do and the tools I do it with.</p>
+      <div class="skills">
+        <div>
+          <h3>Testing</h3>
+          <ul class="chips">
+            <li>Manual testing</li><li>Automation testing</li><li>Functional testing</li>
+            <li>Regression testing</li><li>Sanity testing</li><li>Smoke testing</li>
+            <li>Performance testing</li><li>API testing</li><li>Test case design</li>
+            <li>UAT coordination</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Tools</h3>
+          <ul class="chips tools">
+            <li>Cypress</li><li>Selenium</li><li>Postman</li><li>Swagger</li>
+            <li>GitHub</li><li>Bitbucket</li><li>Azure DevOps</li>
+            <li>Jira</li><li>ClickUp</li><li>Confluence</li><li>TestRail</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      
+      <div class="edu">
+        <article>
+          <h3>BS in Information Technology</h3>
+          <p>San Pedro College of Business Administration, 2017–2018</p>
+        </article>
+        <article>
+          <h3>Associate in Computer Technology</h3>
+          <p>Colegio de San Pedro, 2013–2014</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Let's work together</h2>
+      <p class="intro">Open to QA and automation roles, remote or on-site. The quickest way to reach me is email.</p>
+      <a class="big" href="mailto:jericdivinagracia@gmail.com">jericdivinagracia@gmail.com</a>
+      <p class="loc">Based in Carmona, Cavite, Philippines</p>
+    </section>
+  </main>
+
+  <footer>© <span id="y">2026</span> Jeric Divinagracia</footer>
+</div>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
