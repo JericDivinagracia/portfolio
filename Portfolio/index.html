@@ -68,7 +68,8 @@ nav a:hover{color:var(--ink)}
   .run li:nth-child(4){animation-delay:1.7s}
   .run li:nth-child(5){animation-delay:2.1s}
   .run li:nth-child(6){animation-delay:2.5s}
-  .run .sum{animation-delay:3.1s}
+  .run li:nth-child(7){animation-delay:2.9s}
+  .run .sum{animation-delay:3.5s}
 }
 @keyframes pass{to{opacity:1}}
 
@@ -102,6 +103,29 @@ details{margin-top:.6rem;max-width:46rem}
 summary{cursor:pointer;color:var(--pass);font-weight:600;padding:.2rem 0}
 details ul{margin-top:.4rem}
 
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.6rem 1.5rem}
+.svc .ic{width:46px;height:46px;border-radius:11px;background:var(--pass-soft);display:grid;place-items:center;margin-bottom:1.1rem}
+.svc .ic svg{width:22px;height:22px;fill:none;stroke:var(--pass);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font:700 1.12rem/1.3 var(--display);margin:0 0 .45rem}
+.svc p{margin:0;color:var(--muted);font-size:.96rem}
+.svc.feature{background:var(--run-bg);border-color:transparent;color:var(--run-ink)}
+.svc.feature p{color:#B9C6D3}
+.svc.feature .ic{background:#5CC489}
+.svc.feature .ic svg{stroke:#0E151D}
+
+/* process */
+.process{display:grid;grid-template-columns:repeat(5,1fr);gap:1.25rem;list-style:none;margin:0;padding:0;counter-reset:s}
+.process li{border-top:3px solid var(--pass);padding-top:1rem}
+.process li::before{counter-increment:s;content:"Step " counter(s);display:block;font-weight:600;font-size:.82rem;color:var(--muted);margin-bottom:.35rem}
+.process h3{font:700 1.08rem/1.3 var(--display);margin:0 0 .35rem}
+.process p{margin:0;color:var(--muted);font-size:.94rem}
+
+/* skills & tools */
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.8rem;list-style:none;margin:0;padding:0}
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.9rem 1rem;display:flex;align-items:center;gap:.75rem;font-weight:600;font-size:.97rem}
+.tool b{width:32px;height:32px;flex:none;border-radius:8px;display:grid;place-items:center;font:800 .82rem var(--display);color:#fff}
 /* skills */
 .skills{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
 .skills h3{font:700 1.15rem/1.3 var(--display);margin:0 0 1rem}
@@ -116,20 +140,43 @@ details ul{margin-top:.4rem}
 .edu p{margin:0;color:var(--muted)}
 
 /* contact */
-.contact{text-align:left}
-.contact .big{font:800 clamp(1.6rem,4.5vw,3rem)/1.1 var(--display);letter-spacing:-.02em;text-decoration:none;border-bottom:4px solid var(--pass);word-break:break-all}
-.contact .big:hover{color:var(--pass)}
-.contact p.loc{color:var(--muted);margin-top:1.5rem}
+.contact-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:3.5rem;align-items:start}
+.contact-grid h2{font-size:clamp(2.2rem,5vw,3.2rem);margin-bottom:2rem}
+.logos{display:flex;gap:1rem}
+.logos a{width:64px;height:64px;border-radius:16px;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;transition:transform .15s,border-color .15s,box-shadow .15s}
+.logos a:hover{transform:translateY(-3px);border-color:var(--pass);box-shadow:0 12px 24px -16px rgba(20,30,45,.5)}
+.logos svg{width:32px;height:32px}
+.logos a.oj svg{width:34px;height:34px}
+@media (prefers-color-scheme:dark){.logos a.oj{background:#fff}}
+.form-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:2.25rem 2rem 1.5rem;box-shadow:0 20px 40px -32px rgba(20,30,45,.4)}
+.field{margin-bottom:1.4rem}
+.field label{display:block;font-weight:500;font-size:.95rem;margin-bottom:.55rem}
+.field input,.field textarea{width:100%;font:400 .97rem var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.75rem .95rem;transition:border-color .15s,box-shadow .15s}
+.field textarea{min-height:150px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:var(--muted);opacity:.75}
+.field input:focus,.field textarea:focus{outline:none;border-color:#6D55F5;box-shadow:0 0 0 3px rgba(109,85,245,.18)}
+.hp{position:absolute;left:-9999px}
+.send{width:100%;display:flex;align-items:center;justify-content:center;gap:.7rem;border:0;border-radius:10px;padding:.95rem;font:600 1rem var(--body);color:#fff;cursor:pointer;background:linear-gradient(90deg,#6D55F5,#C26BF0);box-shadow:0 12px 26px -12px rgba(109,85,245,.6);transition:opacity .15s}
+.send:hover{opacity:.92}
+.send[disabled]{opacity:.6;cursor:wait}
+.send svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.note{min-height:1.4rem;margin:1rem 0 0;font-size:.9rem;text-align:center}
+.note.ok{color:var(--pass)}
+.note.err{color:#D14343}
 footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
 
 @media (max-width:860px){
-  .hero,.about,.skills,.edu{grid-template-columns:1fr}
+  .hero,.about,.skills,.edu,.contact-grid{grid-template-columns:1fr}
+  .services{grid-template-columns:1fr 1fr}
+  .process{grid-template-columns:1fr 1fr}
+  .contact-grid{gap:2.25rem}
   .hero{padding-top:1.5rem;gap:2.5rem}
   nav ul{gap:1rem}
 }
 @media (max-width:560px){
   nav{display:none}
   .facts{grid-template-columns:1fr}
+  .services,.process{grid-template-columns:1fr}
   .run{font-size:.8rem;padding:1.1rem}
 }
 </style>
@@ -141,8 +188,9 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
     <nav aria-label="Main">
       <ul>
         <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
+        <li><a href="#tools">Tools</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -155,22 +203,23 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
         <p class="role">Senior QA Engineer</p>
         <p class="lede">I test web and mobile products, manually and with automation, so teams can release with confidence. Nearly 7 years in QA, plus a start as a full stack developer.</p>
         <div class="actions">
-          <a class="btn primary" href="mailto:jericdivinagracia@gmail.com">Email me</a>
-          <a class="btn ghost" href="#experience">See my experience</a>
+          <a class="btn primary" href="https://drive.google.com/file/d/1xpM4-deTqvbuy2ezoagohfTHlApBO9y9/view?usp=sharing" target="_blank" rel="noopener">View Resume</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
         </div>
       </div>
 
-      <div class="run" role="img" aria-label="A test run showing all career checks passing: nearly 7 years of QA, web and mobile testing, automation with Cypress and Selenium, API testing with Postman, UAT coordination, and CI/CD integration.">
+      <div class="run" role="img" aria-label="A test run showing all career checks passing: nearly 7 years of QA, web and mobile testing, automation with Cypress and Selenium, API testing with Postman, load testing with JMeter and k6, UAT coordination, and CI/CD integration.">
         <div class="cmd">$ <b>npx cypress run --spec jeric.cy.js</b></div>
         <ol>
           <li><span class="ok">✓</span> has ~7 years of QA experience <span class="t">2019–now</span></li>
           <li><span class="ok">✓</span> tests web and mobile platforms <span class="t">12ms</span></li>
           <li><span class="ok">✓</span> automates with Cypress &amp; Selenium <span class="t">18ms</span></li>
           <li><span class="ok">✓</span> validates APIs with Postman <span class="t">9ms</span></li>
+          <li><span class="ok">✓</span> load tests with JMeter &amp; k6 <span class="t">16ms</span></li>
           <li><span class="ok">✓</span> coordinates UAT end to end <span class="t">14ms</span></li>
           <li><span class="ok">✓</span> plugs tests into CI/CD <span class="t">11ms</span></li>
         </ol>
-        <div class="sum"><strong>6 passing</strong>, 0 failing. Ready for release.</div>
+        <div class="sum"><strong>7 passing</strong>, 0 failing. Ready for release.</div>
       </div>
     </div>
 
@@ -189,6 +238,55 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
           </div>
         </div>
       </div>
+    </section>
+
+    <section id="services">
+      <h2>What I can do for your team</h2>
+      <p class="intro">From the first test plan to the final go/no-go call, I cover the full quality cycle.</p>
+      <div class="services">
+        <article class="svc feature">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 17l6-6-6-6M12 19h8"/></svg></div>
+          <h3>Test automation</h3>
+          <p>I design and maintain automated test frameworks with Cypress and Selenium that widen coverage and cut regression time.</p>
+        </article>
+        <article class="svc">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></div>
+          <h3>Manual &amp; functional testing</h3>
+          <p>Functional, regression, sanity, and smoke testing, with clear test cases for new features and legacy flows.</p>
+        </article>
+        <article class="svc">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg></div>
+          <h3>API testing</h3>
+          <p>I validate endpoints, payloads, and error handling with Postman, Swagger, and REST-based frameworks.</p>
+        </article>
+        <article class="svc">
+          <div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M17 11l2 2 4-4"/></svg></div>
+          <h3>UAT coordination</h3>
+          <p>I run user acceptance testing with business teams, escalate issues fast, and hand off cleanly to production support.</p>
+        </article>
+        <article class="svc">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div>
+          <h3>CI/CD quality gates</h3>
+          <p>I plug automated tests into your pipelines for continuous testing and faster, safer releases.</p>
+        </article>
+        <article class="svc">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+          <h3>Quality reporting</h3>
+          <p>Defect tracking, root cause analysis, and clear quality metrics so everyone knows if a release is ready.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="process">
+      <h2>How I work</h2>
+      <p class="intro">A simple, repeatable flow that fits into your Agile sprints.</p>
+      <ol class="process">
+        <li><h3>Review</h3><p>Read requirements and specs to make sure every story is testable.</p></li>
+        <li><h3>Plan</h3><p>Write the test strategy, test plan, and test cases.</p></li>
+        <li><h3>Test</h3><p>Run manual and automated tests across web and mobile.</p></li>
+        <li><h3>Report</h3><p>Log defects, find root causes, and work with developers on fixes.</p></li>
+        <li><h3>Release</h3><p>Give a clear go/no-go call based on results and risk.</p></li>
+      </ol>
     </section>
 
     <section id="experience">
@@ -274,27 +372,34 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
     </section>
 
     <section id="skills">
-      <h2>Skills &amp; tools</h2>
-      <p class="intro">The testing I do and the tools I do it with.</p>
-      <div class="skills">
-        <div>
-          <h3>Testing</h3>
-          <ul class="chips">
-            <li>Manual testing</li><li>Automation testing</li><li>Functional testing</li>
-            <li>Regression testing</li><li>Sanity testing</li><li>Smoke testing</li>
-            <li>Performance testing</li><li>API testing</li><li>Test case design</li>
-            <li>UAT coordination</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Tools</h3>
-          <ul class="chips tools">
-            <li>Cypress</li><li>Selenium</li><li>Postman</li><li>Swagger</li>
-            <li>GitHub</li><li>Bitbucket</li><li>Azure DevOps</li>
-            <li>Jira</li><li>ClickUp</li><li>Confluence</li><li>TestRail</li>
-          </ul>
-        </div>
-      </div>
+      <h2>Skills</h2>
+      <p class="intro">The kinds of testing I do every day.</p>
+      <ul class="chips">
+        <li>Manual testing</li><li>Automation testing</li><li>Functional testing</li>
+        <li>Regression testing</li><li>Sanity testing</li><li>Smoke testing</li>
+        <li>Performance testing</li><li>Load testing</li><li>API testing</li>
+        <li>Test case design</li><li>UAT coordination</li>
+      </ul>
+    </section>
+
+    <section id="tools">
+      <h2>Tools</h2>
+      <p class="intro">For automation, API and performance testing, version control, and project tracking.</p>
+      <ul class="tools">
+        <li class="tool"><b style="background:#17202C">Cy</b>Cypress</li>
+        <li class="tool"><b style="background:#43B02A">Se</b>Selenium</li>
+        <li class="tool"><b style="background:#EF5B25">Po</b>Postman</li>
+        <li class="tool"><b style="background:#6B9A1E">Sw</b>Swagger</li>
+        <li class="tool"><b style="background:#D22128">Jm</b>JMeter</li>
+        <li class="tool"><b style="background:#7D64FF">k6</b>k6</li>
+        <li class="tool"><b style="background:#24292F">Gh</b>GitHub</li>
+        <li class="tool"><b style="background:#0052CC">Bb</b>Bitbucket</li>
+        <li class="tool"><b style="background:#0078D4">Az</b>Azure DevOps</li>
+        <li class="tool"><b style="background:#2684FF">Ji</b>Jira</li>
+        <li class="tool"><b style="background:#7B68EE">Cu</b>ClickUp</li>
+        <li class="tool"><b style="background:#1868DB">Co</b>Confluence</li>
+        <li class="tool"><b style="background:#3F9C35">Tr</b>TestRail</li>
+      </ul>
     </section>
 
     <section id="education">
@@ -302,26 +407,79 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
       
       <div class="edu">
         <article>
-          <h3>BS in Information Technology</h3>
-          <p>San Pedro College of Business Administration, 2017–2018</p>
+          <h3>Bachelor of Science in Information Technology</h3>
+          <p>San Pedro College of Business Administration</p>
         </article>
         <article>
           <h3>Associate in Computer Technology</h3>
-          <p>Colegio de San Pedro, 2013–2014</p>
+          <p>Colegio de San Pedro</p>
         </article>
       </div>
     </section>
 
-    <section id="contact" class="contact">
-      <h2>Let's work together</h2>
-      <p class="intro">Open to QA and automation roles, remote or on-site. The quickest way to reach me is email.</p>
-      <a class="big" href="mailto:jericdivinagracia@gmail.com">jericdivinagracia@gmail.com</a>
-      <p class="loc">Based in Carmona, Cavite, Philippines</p>
+    <section id="contact">
+      <div class="contact-grid">
+        <div>
+          <h2>Let's work together</h2>
+          <div class="logos">
+            <a href="mailto:jericdivinagracia@gmail.com" aria-label="Email" title="Email">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"/><path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"/><polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/><path fill="#c62828" d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8h0C4.924,8,3,9.924,3,12.298z"/><path fill="#fbc02d" d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8h0C43.076,8,45,9.924,45,12.298z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/jericdivinagracia/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" transform="translate(3.6 3.4) scale(.7)" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1v5.46h-4v-4.84c0-1.16-.02-2.64-1.61-2.64-1.61 0-1.86 1.26-1.86 2.56v4.92h-4z"/></svg>
+            </a>
+            <a href="https://v2.onlinejobs.ph/jobseekers/info/1383433" target="_blank" rel="noopener" aria-label="OnlineJobs.ph" title="OnlineJobs.ph" class="oj">
+              <svg viewBox="167 152 655 723" aria-hidden="true"><g transform="translate(0.000000,992.000000) scale(0.100000,-0.100000)" fill="#024570" stroke="none"> <path d="M5159 8310 c-104 -18 -160 -58 -232 -165 -22 -33 -72 -93 -111 -133 -71 -73 -71 -73 -71 -225 0 -152 0 -152 -36 -222 -37 -73 -46 -94 -130 -314 -81 -214 -120 -442 -122 -721 -4 -323 92 -411 507 -469 178 -25 217 -120 123 -296 -48 -89 -86 -109 -286 -145 -275 -51 -354 -88 -523 -247 -57 -53 -157 -141 -223 -196 -213 -177 -436 -420 -496 -538 -115 -228 -63 -382 239 -705 237 -255 199 -315 -158 -249 -473 87 -695 44 -740 -145 -27 -112 0 -425 59 -690 16 -74 44 -227 61 -340 17 -113 45 -268 61 -344 59 -281 40 -317 -229 -441 -243 -112 -282 -141 -282 -208 0 -105 157 -155 535 -168 568 -20 808 38 854 204 16 56 10 97 -39 252 -81 257 -129 855 -77 952 55 103 143 125 557 139 551 19 851 -99 1061 -418 177 -269 199 -433 66 -497 -150 -73 -605 -95 -969 -47 -255 34 -304 23 -344 -71 -42 -99 14 -390 92 -482 69 -80 147 -102 429 -122 378 -26 774 15 1070 111 83 27 186 59 230 70 248 68 722 342 1000 579 318 271 708 799 828 1121 13 36 46 114 72 174 74 170 181 612 196 810 15 200 7 652 -15 766 -29 159 -136 579 -162 637 -229 520 -400 793 -688 1101 -104 111 -191 144 -272 106 -43 -20 -71 -61 -162 -236 -108 -207 -104 -235 70 -449 101 -124 186 -247 268 -389 24 -41 103 -165 176 -275 148 -225 284 -484 334 -640 18 -55 48 -136 67 -180 78 -181 123 -405 104 -511 -31 -167 -201 -395 -455 -608 -157 -131 -162 -137 -281 -326 -148 -236 -382 -502 -488 -555 -116 -57 -156 -31 -259 170 -191 370 -154 477 207 610 117 44 141 55 300 148 238 138 397 257 515 385 163 177 173 279 56 551 -20 46 -52 136 -70 200 -79 274 -161 419 -424 746 -257 321 -407 432 -634 470 -246 42 -346 141 -336 334 9 183 100 289 280 326 184 39 249 93 338 280 88 184 94 212 92 420 -2 211 -20 304 -92 473 -143 336 -294 438 -873 593 -138 37 -452 58 -568 39z m1366 -3446 c28 -19 51 -51 161 -234 207 -345 209 -322 -50 -583 -210 -212 -320 -294 -417 -312 -117 -22 -240 96 -255 242 -19 183 198 666 377 842 72 71 125 84 184 45z m-2133 -241 c68 -78 58 -384 -15 -450 -116 -107 -323 161 -248 322 49 105 213 185 263 128z"/> <path d="M4023 7506 c-34 -8 -112 -37 -175 -64 -62 -28 -141 -62 -174 -76 -436 -181 -952 -572 -1211 -917 -218 -291 -317 -451 -397 -641 -24 -56 -64 -148 -88 -203 -25 -55 -57 -145 -72 -200 -15 -55 -39 -140 -53 -190 -49 -174 -61 -234 -78 -406 -45 -448 -18 -782 96 -1204 67 -247 62 -233 137 -410 88 -211 104 -242 211 -409 351 -549 528 -573 413 -56 -48 214 -76 437 -101 805 -7 103 -18 180 -36 245 -89 331 -110 720 -56 1075 39 261 223 741 364 950 298 442 605 709 1080 939 226 109 266 156 307 358 12 56 32 138 46 181 59 191 -14 268 -213 223z"/> </g></svg>
+            </a>
+          </div>
+        </div>
+
+        <form class="form-card" id="contact-form" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="your.email@example.com" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me about your project or QA needs..." required></textarea>
+          </div>
+          <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="send" type="submit">
+            Send Message
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+          <p class="note" id="form-note" role="status"></p>
+        </form>
+      </div>
     </section>
   </main>
 
-  <footer>© <span id="y">2026</span> Jeric Divinagracia</footer>
+  <footer>© <span id="y">2026</span> Jeric Divinagracia. QA Automation Engineer.</footer>
 </div>
-<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+const form=document.getElementById('contact-form'),note=document.getElementById('form-note'),sendBtn=form.querySelector('.send');
+form.addEventListener('submit',async e=>{
+  e.preventDefault(); note.className='note';
+  const name=form.name.value.trim(),email=form.email.value.trim(),message=form.message.value.trim();
+  if(!name||!email||!message){note.textContent='Please fill in your name, email, and message.';note.classList.add('err');return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){note.textContent='Please enter a valid email address.';note.classList.add('err');return;}
+  if(form._honey.value)return;
+  sendBtn.disabled=true; note.textContent='Sending...';
+  try{
+    const res=await fetch('https://formsubmit.co/ajax/jericdivinagracia@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({name,email,message,_subject:'New message from your portfolio',_template:'table',_captcha:'false'})});
+    const data=await res.json().catch(()=>({}));
+    if(!res.ok||data.success==='false'||data.success===false)throw new Error();
+    form.reset(); note.textContent="Message sent. Thanks, I'll get back to you soon."; note.classList.add('ok');
+  }catch{
+    note.innerHTML='Your message could not be sent. Please email me at <a href="mailto:jericdivinagracia@gmail.com">jericdivinagracia@gmail.com</a>.'; note.classList.add('err');
+  }finally{sendBtn.disabled=false;}
+});
+</script>
 </body>
 </html>
